@@ -106,7 +106,7 @@ public class AllBackgroundService extends Service implements BleWrapperUiCallbac
 
     @Override
     public void uiNewValueForCharacteristicWithSensorObject(BluetoothGatt gatt, BluetoothDevice device, BluetoothGattService service, BluetoothGattCharacteristic ch, List<SensorObject> sensorObjects, int intValue, byte[] rawValue, String timestamp) {
-
+        writeValueInTable(sensorObjects);
     }
 
     @Override
