@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">APMD SDK</string>
+    <string name="device_name">TenPi_APMD</string>
+    <string name="first_pm_sensor_name">PM2.5</string>
+    <string name="second_pm_sensor_name">PM10</string>
+    <string name="humidity_sensor_name">HUMIDITY</string>
+    <string name="temperature_sensor_name">TEMPERATURE</string>
+    <string name="co_sensor_name">CO</string>
+    <string name="co2_sensor_name">CO2</string>
+    <string name="no2_sensor_name">NO2</string>
+    <string name="so2_sensor_name">SO2</string>
+    <string name="o3_sensor_name">O3</string>
+</resources>
