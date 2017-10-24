@@ -45,6 +45,7 @@ import com.tenpitech.apmd.apmdsdk.helper.ApplicationStringHolder;
 import com.tenpitech.apmd.apmdsdk.helper.DatabaseHelper;
 import com.tenpitech.apmd.apmdsdk.helper.LocationManagerHelper;
 import com.tenpitech.apmd.apmdsdk.helper.NetEnableManager;
+import com.tenpitech.apmd.apmdsdk.service.AllBackgroundService;
 import com.tenpitech.apmd.apmdsdk.service.CheckDataSaved;
 import com.tenpitech.apmd.apmdsdk.task.ServerCallTask;
 
@@ -115,6 +116,7 @@ public class PeripheralActivity extends AppCompatActivity implements BleWrapperU
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.peripheral_activity_2);
+        stopService(new Intent(getApplicationContext(), AllBackgroundService.class));
 
         Intent intent = getIntent();
         mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
@@ -628,4 +630,11 @@ public class PeripheralActivity extends AppCompatActivity implements BleWrapperU
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Intent service=new Intent(getApplicationContext(),AllBackgroundService.class);
+        startService(service);
+
+    }
 }

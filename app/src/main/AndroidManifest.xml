@@ -34,11 +34,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PeripheralActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".PeripheralActivity"
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".service.CheckDataSaved"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".service.AllBackgroundService"
             android:enabled="true"
             android:exported="true"></service>
     </application>
