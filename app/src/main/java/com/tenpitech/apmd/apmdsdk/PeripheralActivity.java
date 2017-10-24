@@ -134,6 +134,7 @@ public class PeripheralActivity extends AppCompatActivity implements BleWrapperU
             finish();
         }
 
+
         databasehelper = new DatabaseHelper(getApplicationContext());
         ApplicationStringHolder.VAL = 0;
         startService(new Intent(getApplication(), CheckDataSaved.class));
@@ -515,6 +516,8 @@ public class PeripheralActivity extends AppCompatActivity implements BleWrapperU
                 for (SensorObject sensorObject : sensorObjects) {
                     ServerCallObject serverCallObject = new ServerCallObject();
 
+
+
                     Location location = getLocationManagerHelper().getLocation();
                     CurrentLocation currentLocation = new CurrentLocation(location.getLatitude(), location.getLongitude());
                     serverCallObject.setLocation(currentLocation);
@@ -634,6 +637,8 @@ public class PeripheralActivity extends AppCompatActivity implements BleWrapperU
     protected void onDestroy() {
         super.onDestroy();
         Intent service=new Intent(getApplicationContext(),AllBackgroundService.class);
+        service.putExtra(EXTRAS_DEVICE_NAME,mDeviceName);
+        service.putExtra(EXTRAS_DEVICE_ADDRESS,mDeviceAddress);
         startService(service);
 
     }
